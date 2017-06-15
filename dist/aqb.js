@@ -375,6 +375,15 @@ Expression.prototype.neg = function () {
 Expression.prototype['in'] = function (x) {
     return new BinaryOperation('in', this, x);
 };
+Expression.prototype.like = function () {
+  return new UnaryOperation('like', this);
+};
+Expression.prototype.match = function (x) {
+  return new BinaryOperation('=~', this, x);
+};
+Expression.prototype.notMatch = function (x) {
+  return new BinaryOperation('!~', this, x);
+};
 Expression.prototype.notIn = function (x) {
     return new BinaryOperation('not in', this, x);
 };
