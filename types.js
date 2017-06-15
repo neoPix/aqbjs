@@ -181,6 +181,15 @@ Expression.prototype.in = function (x) {
 Expression.prototype.notIn = function (x) {
   return new BinaryOperation('not in', this, x);
 };
+Expression.prototype.like = function (x) {
+  return new BinaryOperation('like', this, x);
+};
+Expression.prototype.match = function (x) {
+  return new BinaryOperation('=~', this, x);
+};
+Expression.prototype.notMatch = function (x) {
+  return new BinaryOperation('!~', this, x);
+};
 Expression.prototype.then = function (x) {
   var self = this;
   var elseFn = function (y) {
